@@ -1,28 +1,32 @@
-IDIR = ../include
 CC = gcc
-CFLAGS = -I$(IDIR) -MMD -MP
-ODIR = obj
-LDIR = ../lib
+CFLAGS = -I$(INCLUDE_DIR) -g -Wall 
 
-_DEPS = common.h chunk.h debug.h memory.h
-DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+SRC_DIR=src
+OBJ_DIR = obj
+BIN_DIR = bin
+INCLUDE_DIR = ./include
 
-_OBJ = main.o chunk.o debug.o memory.o
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+TARGET = $(BIN_DIR)/main
 
-$(ODIR)/%.o: src/%.c | $(ODIR)
-	$(CC) -c -o $@ $< $(CFLAGS)
+SRCS=$(wildcard $(SRC_DIR)/*.c)
+OBJS=$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
-$(ODIR):
-	mkdir -p $(ODIR)
+all:$(TARGET)
 
-main: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJS): | $(OBJ_DIR)
+$(TARGET): | $(BIN_DIR)
+
+$(OBJ_DIR) $(BIN_DIR):
+	mkdir -p $@
 
 .PHONY: clean
 
 clean:
-	rm -f $(ODIR)/*.o $(ODIR)/*.d *~ core $(IDIR)/*~
+	rm -rf $(OBJ_DIR) $(BIN_DIR)
 
-# Ensure that the dependency directories are created before compiling
--include $(OBJ:.o=.d)
