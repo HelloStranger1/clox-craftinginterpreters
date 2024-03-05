@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -I$(INCLUDE_DIR) -g -Wall 
+CFLAGS = -I$(INCLUDE_DIR) -g -Wall -g 
 
 SRC_DIR=src
 OBJ_DIR = obj

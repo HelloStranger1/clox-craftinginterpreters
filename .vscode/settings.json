@@ -2,6 +2,7 @@
     "files.associations": {
         "memory.h": "c",
         "chunk.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "stdio.h": "c"
     }
 }
