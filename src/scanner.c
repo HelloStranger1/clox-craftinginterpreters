@@ -233,4 +233,3 @@ Token scanToken(void) {
     }
     
     return errorToken("Unexpected character.");
-}
