@@ -3,6 +3,7 @@
         "memory.h": "c",
         "chunk.h": "c",
         "stdlib.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "value.h": "c"
     }
 }
