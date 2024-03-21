@@ -7,7 +7,7 @@
                 "/home/eyal/Code/clox/include"
             ],
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "/usr/bin/clang",
+            "compilerPath": "/usr/bin/gcc",
             "cStandard": "c17",
             "cppStandard": "c++14"
         }
