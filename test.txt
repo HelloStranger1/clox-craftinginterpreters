@@ -1,10 +1,10 @@
-var breakfast = "beignets";
-var beverage = "cafe au lait";
-breakfast = "beignets with " + beverage;
-{
-    var a = 5;
-    var beverage = "hey";
-    print beverage;
+print 5;
+var breakfast = "hello";
+if (breakfast != "hey") {
+    print "fuck";
 }
-print beverage;
-print breakfast;
+var i = 5;
+for (i = 1; i < 7; i = i + 2) {
+    print i;
+}
+print "done";
