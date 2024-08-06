@@ -28,5 +28,5 @@ $(OBJ_DIR) $(BIN_DIR):
 .PHONY: clean
 
 clean:
-	rm -rf $(OBJ_DIR) $(BIN_DIR)
+	rm -rf $(OBJ_DIR) $(TARGET)
 
